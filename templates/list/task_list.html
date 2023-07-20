@@ -4,7 +4,7 @@
 {% block content %}
   <h1>
     Book List
-  <a style="float: right" class="btn btn-primary" href="{% url 'catalog:book-create' %}">+</a>
+  <a style="float: right" class="btn btn-primary" href="{% url 'list:task-create' %}">+</a>
   </h1>
   <hr>
   <form action="" method="get" class="form-inline">
@@ -15,31 +15,35 @@
   {% if book_list %}
     <table class="table">
     <tr>
-      <th>ID</th>
-      <th>Title</th>
-      <th>Price</th>
-      <th>Format</th>
+      <th>Content</th>
+      <th>Detetime</th>
+      <th>Deadline</th>
+      <th>Done</th>
+      <th>Tag</th>
     </tr>
 
-    {% for book in book_list %}
+    {% for task in task_list %}
     <tr>
       <td>
-        <a href="{{book.get_absolute_url}}">{{ book.id }}</a>
+        {{ task.content }}
       </td>
       <td>
-        {{ book.title }}
+        {{ task.datetime }}
       </td>
       <td>
-        {{ book.price }}$
+        {{ task.deadline }}$
       </td>
       <td>
-        {{ book.format }}
+        {{ task_done }}
       </td>
+    <td>
+        {{ task.tag }}
+    </td>
     </tr>
     {% endfor %}
     </table>
     {% else %}
-      <p>No books, motherfucker</p>
+      <p>No tasks</p>
     {% endif %}
 
 
