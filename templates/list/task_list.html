@@ -3,7 +3,7 @@
 
 {% block content %}
   <h1>
-    Book List
+    All Tasks
   <a style="float: right" class="btn btn-primary" href="{% url 'list:task-create' %}">+</a>
   </h1>
   <hr>
@@ -12,7 +12,7 @@
     <input class="btn btn-secondary" type="submit" value="🔎">
   </form>
   <hr>
-  {% if book_list %}
+  {% if task_list %}
     <table class="table">
     <tr>
       <th>Content</th>
@@ -34,10 +34,10 @@
         {{ task.deadline }}$
       </td>
       <td>
-        {{ task_done }}
+        {{ task.done }}
       </td>
     <td>
-        {{ task.tag }}
+        {{ task.tag.last }}
     </td>
     </tr>
     {% endfor %}
