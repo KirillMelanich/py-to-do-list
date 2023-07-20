@@ -20,7 +20,7 @@ def index(request):
 
 class TaskListView(generic.ListView):
     model = Task
-    template_name = "list/task.html"
+    template_name = "list/task_list.html"
     context_object_name = "task_list"
 
 
