@@ -1,3 +1,17 @@
 from django.contrib import admin
 
-# Register your models here.
+from list.models import Tag, Task
+
+
+@admin.register(Tag)
+class TagAdmin(admin.ModelAdmin):
+    list_display = ["tag"]
+    list_filter = ["tag"]
+    search_fields = ["tag"]
+
+
+@admin.register(Task)
+class TTaskAdmin(admin.ModelAdmin):
+    list_display = ["content", "datetime", "deadline", "done"]
+    list_filter = ["datetime"]
+    search_fields = ["datetime"]
