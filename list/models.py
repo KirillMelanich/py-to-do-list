@@ -8,7 +8,7 @@ class Tag(models.Model):
         return self.tag
 
 
-class Task:
+class Task(models.Model):
     content = models.TextField()
     datetime = models.DateTimeField(auto_now=True)
     deadline = models.DateTimeField(blank=True, null=True)

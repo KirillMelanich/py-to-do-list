@@ -11,7 +11,7 @@ class TagAdmin(admin.ModelAdmin):
 
 
 @admin.register(Task)
-class TTaskAdmin(admin.ModelAdmin):
+class TaskAdmin(admin.ModelAdmin):
     list_display = ["content", "datetime", "deadline", "done"]
     list_filter = ["datetime"]
     search_fields = ["datetime"]
