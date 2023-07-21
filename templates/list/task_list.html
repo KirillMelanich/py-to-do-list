@@ -15,7 +15,8 @@
          <br>
         <h4>
           {{ task.content }}
-          <a style="float: right" class="btn btn-primary" href="{% url 'list:task-update' pk=task.id %}">Edit</a>
+         <a style="float: right; background-color: grey; color: white; padding: 5px 10px; border-radius: 5px; text-decoration: none;" class="btn" href="{% url 'list:task-update' pk=task.id %}">Edit</a>
+
         </h4>
         <p>Date of creation - {{ task.datetime }} Deadline - {{ task.deadline }}</p>
         <p>Is it done? - {{ task.done }}</p>
