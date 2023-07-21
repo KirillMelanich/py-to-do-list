@@ -6,18 +6,6 @@ from django.views import generic
 from list.models import Tag, Task
 
 
-def index(request):
-    num_tags = Tag.objects.count()
-    num_tasks = Task.objects.count()
-
-    context = {
-        "num_tags": num_tags,
-        "num_tasks": num_tasks,
-    }
-
-    return render(request=request, template_name="list/index.html", context=context)
-
-
 class TaskListView(generic.ListView):
     model = Task
     template_name = "list/task_list.html"

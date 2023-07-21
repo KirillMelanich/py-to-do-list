@@ -1,17 +1,36 @@
 from django import forms
-from django.contrib.auth import get_user_model
-from django.contrib.auth.forms import UserCreationForm
-from list.models import Tag, Task
+from tempus_dominus.widgets import DateTimePicker
+
+from list.models import Task
 
 
 class TaskForm(forms.ModelForm):
-    tags = forms.ModelMultipleChoiceField(
-        queryset=get_user_model().objects.all(),
-        widget=forms.CheckboxSelectMultiple,
-        required=False,
-    )
-
     class Meta:
         model = Task
-        fields = "__all__"
+        fields = ['content', 'deadline', 'done', 'tag']
+
+    widgets = {
+        'deadline': DateTimePicker(
+            options={
+                'useCurrent': True,
+                'sideBySide': True,
+                'icons': {
+                    'time': 'fa fa-clock',
+                    'date': 'fa fa-calendar',
+                    'up': 'fa fa-chevron-up',
+                    'down': 'fa fa-chevron-down',
+                    'previous': 'fa fa-chevron-left',
+                    'next': 'fa fa-chevron-right',
+                    'today': 'fa fa-calendar-check-o',
+                    'clear': 'fa fa-trash',
+                    'close': 'fa fa-times'
+                }
+            },
+            attrs={
+                'append': 'fa fa-calendar',
+                'input_toggle': True,
+                'input_group': True,
+            },
+        ),
+    }
 

@@ -22,7 +22,7 @@
         <p>Is it done? - {{ task.done }}</p>
         <p>
          {% for tag in task.tag.all %}
-            {{ tag }},
+            {{ tag }}
         {% endfor %} <a style="float: right" class="btn btn-danger" href="{% url 'list:task-delete' pk=task.id %}">Delete</a>
         </p>
 
