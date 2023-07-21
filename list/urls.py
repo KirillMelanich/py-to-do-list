@@ -52,7 +52,7 @@ urlpatterns = [
         "tags/<int:pk>/delete/",
         TagDeleteView.as_view(),
         name="tag-delete",
-    )
+    ),
 ]
 
 app_name = "list"
