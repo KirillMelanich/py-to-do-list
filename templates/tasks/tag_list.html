@@ -5,7 +5,7 @@
     <strong>
       Tags
     </strong>
-    <a style="float: right" class="btn btn-primary" href="{% url 'list:tag-create' %}">Add new</a>
+    <a style="float: right" class="btn btn-primary" href="{% url 'tasks:tag-create' %}">Add new</a>
   </h1>
 
   {% if tag_list %}
@@ -22,11 +22,11 @@
             {{ tag.tag }}
           </td>
           <td>
-           <a href="{% url 'list:tag-update' pk=tag.id %}" style="background-color: grey; color: white; padding: 5px 10px; border-radius: 5px; text-decoration: none;">update</a>
+           <a href="{% url 'tasks:tag-update' pk=tag.id %}" style="background-color: grey; color: white; padding: 5px 10px; border-radius: 5px; text-decoration: none;">update</a>
 
           </td>
           <td>
-            <a href="{% url 'list:tag-delete' pk=tag.id %}" style="background-color: red; color: white; padding: 5px 10px; border-radius: 5px; text-decoration: none;">delete</a>
+            <a href="{% url 'tasks:tag-delete' pk=tag.id %}" style="background-color: red; color: white; padding: 5px 10px; border-radius: 5px; text-decoration: none;">delete</a>
 
           </td>
         </tr>

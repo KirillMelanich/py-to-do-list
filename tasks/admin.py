@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from list.models import Tag, Task
+from tasks.models import Tag, Task
 
 
 @admin.register(Tag)
@@ -12,6 +12,6 @@ class TagAdmin(admin.ModelAdmin):
 
 @admin.register(Task)
 class TaskAdmin(admin.ModelAdmin):
-    list_display = ["content", "datetime", "deadline", "done"]
-    list_filter = ["datetime"]
-    search_fields = ["datetime"]
+    list_display = ["content", "created_at", "deadline", "is_done"]
+    list_filter = ["created_at"]
+    search_fields = ["created_at"]

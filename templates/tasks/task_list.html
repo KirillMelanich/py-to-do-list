@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+  <h1>
+    <strong>
+    TODO List
+    </strong>
+    <a style="float: right" class="btn btn-primary" href="{% url 'tasks:task-create' %}">Add a task</a>
+  </h1>
+  <hr>
+  {% if task_list %}
+    <ul>
+    {% for task in task_list %}
+        <hr>
+        <br>
+        <h4>
+          {{ task.content }}
+          <a style="float: right; background-color: grey; color: white; padding: 5px 10px; border-radius: 5px; text-decoration: none;" class="btn" href="{% url 'tasks:task-update' pk=task.id %}">Edit</a>
+        </h4>
+        <p>Date of creation - {{ task.created_at }} Deadline - {{ task.deadline }}</p>
+        <p>Is it done? - {{ task.is_done }}</p>
+        <p>
+         {% for tag in task.tag.all %}
+            {{ tag }}
+        {% endfor %}
+        <a style="float: right" class="btn btn-danger" href="{% url 'tasks:task-delete' pk=task.id %}">Delete</a>
+        </p>
+
+    {% endfor %}
+    </ul>
+  {% else %}
+    <p>No tasks</p>
+  {% endif %}
+{% endblock %}

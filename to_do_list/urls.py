@@ -1,7 +1,7 @@
 """
 URL configuration for to_do_list project.
 
-The `urlpatterns` list routes URLs to views. For more information please see:
+The `urlpatterns` tasks routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.2/topics/http/urls/
 Examples:
 Function views
@@ -20,5 +20,5 @@ from django.urls import path, include
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", include("list.urls", namespace="list")),
+    path("", include("tasks.urls", namespace="tasks")),
 ]

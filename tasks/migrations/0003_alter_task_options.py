@@ -5,7 +5,7 @@ from django.db import migrations
 
 class Migration(migrations.Migration):
     dependencies = [
-        ("list", "0002_task"),
+        ("tasks", "0002_task"),
     ]
 
     operations = [

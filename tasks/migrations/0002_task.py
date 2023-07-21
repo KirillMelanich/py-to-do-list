@@ -5,7 +5,7 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
     dependencies = [
-        ("list", "0001_initial"),
+        ("tasks", "0001_initial"),
     ]
 
     operations = [
@@ -25,7 +25,7 @@ class Migration(migrations.Migration):
                 ("datetime", models.DateTimeField(auto_now=True)),
                 ("deadline", models.DateTimeField(blank=True, null=True)),
                 ("done", models.BooleanField()),
-                ("tag", models.ManyToManyField(related_name="tags", to="list.tag")),
+                ("tag", models.ManyToManyField(related_name="tags", to="tasks.tag")),
             ],
         ),
     ]

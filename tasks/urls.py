@@ -1,6 +1,6 @@
 from django.urls import path
 
-from list.views import (
+from tasks.views import (
     TaskListView,
     TaskCreateView,
     TaskUpdateView,
@@ -55,4 +55,4 @@ urlpatterns = [
     ),
 ]
 
-app_name = "list"
+app_name = "tasks"
