@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>
+    <strong>
+      Tags
+    </strong>
+    <a style="float: right" class="btn btn-primary" href="{% url 'list:tag-create' %}">+</a>
+  </h1>
+
+  {% if literary_format_list %}
+    <table class="table">
+     <tr>
+       <th>Name</th>
+       <th>Update</th>
+       <th>Delete</th>
+     </tr>
+
+      {% for tag in tag_list %}
+        <tr>
+          <td>
+            <li>{{ tag.tag }}</li>
+          </td>
+          <td>
+            <a href="{% url 'list:tag-update' pk=tag.id %}">update</a>
+          </td>
+          <td>
+            <a href="{% url 'list:tag-delete' pk=tag.id %}">delete</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </table>
+    {% else %}
+      <p>No tags, sorry</p>
+    {% endif %}
+
+{% endblock %}
