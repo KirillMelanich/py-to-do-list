@@ -5,7 +5,7 @@ from list.models import Tag, Task
 
 
 class TaskForm(forms.ModelForm):
-    authors = forms.ModelMultipleChoiceField(
+    tags = forms.ModelMultipleChoiceField(
         queryset=get_user_model().objects.all(),
         widget=forms.CheckboxSelectMultiple,
         required=False,
@@ -14,3 +14,4 @@ class TaskForm(forms.ModelForm):
     class Meta:
         model = Task
         fields = "__all__"
+
